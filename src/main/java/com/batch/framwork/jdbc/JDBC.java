@@ -216,6 +216,8 @@ public class JDBC {
     	    operation = "delete :";
     	    break;
     	}
+    	System.out.println(SQL);
+    	System.out.println(params);
     	if (params.length > 0) { // 说明有参数
     	    PreparedStatement ps = prepare(SQL, false);
     	    Connection c = null;
