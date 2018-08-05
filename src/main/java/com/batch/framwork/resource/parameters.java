@@ -16,5 +16,5 @@ public class parameters {
 	public final static String MYSQL_URL="jdbc:mysql://localhost:3306/jeesite?useUnicode=true&characterEncoding=utf8";
 	public final static String MYSQL_USERNAME="root";
 	public final static String MYSQL_PASSWORD="123456";
-	public final static boolean MYSQL_QUTOCOMMIT=false;
+	public final static boolean MYSQL_QUTOCOMMIT=true;
 }

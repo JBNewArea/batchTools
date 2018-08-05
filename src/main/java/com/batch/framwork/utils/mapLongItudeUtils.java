@@ -16,6 +16,10 @@ import net.sf.json.JSONObject;
  * @author Arthur
  */
 public class mapLongItudeUtils {
+	
+	public static void main(String[] args) {
+		getLngAndLat("南京市江北新区葛塘街道葛塘后街67号");
+	}
 
 	public static String getLngAndLat(String address){
         String map="";
@@ -29,11 +33,10 @@ public class mapLongItudeUtils {
                 map= getDecimal(lng)+","+getDecimal(lat);
                 //System.out.println("经度："+lng+"---纬度："+lat);
             }else{
-                System.out.println("false");
-                //System.out.println("未找到相匹配的经纬度！");
+                System.out.println("未找到相匹配的经纬度！");
             }
         }catch (Exception e){
-            System.out.println("false");
+        	 System.out.println("未找到相匹配的经纬度，请检查地址");
         }
         return map;
     }
