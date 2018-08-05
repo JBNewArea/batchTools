@@ -37,7 +37,6 @@ public class mapLongItudeUtils {
         }
         return map;
     }
-	
 	public static double getDecimal(double num) {
         if (Double.isNaN(num)) {
             return 0;
