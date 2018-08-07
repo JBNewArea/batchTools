@@ -15,7 +15,7 @@ public class projectAction {
 	
 	public static void execute(){
 		Connection conn = JDBC.connect();
-		String query_project="select id,build_detail_place from project_declare";
+		String query_project="select id,build_detail_place from project_declare where longitude is  null LIMIT 300 ";
 		PreparedStatement pstmt = null;
 		try {
 			pstmt = (PreparedStatement)conn.prepareStatement(query_project);
@@ -27,8 +27,12 @@ public class projectAction {
 	            if(!resLong.isEmpty()){
 	            	//区分经纬度
 	            	 String[] longItArr = resLong.split(",");
-	            	 String update_Project = "update project_declare set longitude='"+longItArr[0]+"' and latitude='"+longItArr[1]+"'  where id='"+rs.getString(1)+"'";
-	            	 boolean upres = JDBC.execute(update_Project,"");
+	            	 String update_Project = "update project_declare set longitude=?   where id='"+rs.getString(1)+"'";
+	            	 boolean upres = JDBC.execute(update_Project,longItArr[0]);
+	            	 if(upres){
+	            		 update_Project="update project_declare set  latitude=?  where id='"+rs.getString(1)+"'";
+	            		 upres = JDBC.execute(update_Project,longItArr[1]);
+	            	 }
 	            	 System.out.println(upres);
 	            }else{
 	            	 nullCount++;
@@ -52,8 +56,6 @@ public class projectAction {
 	}
 	
 	public static void main(String[] args) {
-		 String update_Project = "update project_declare set longitude=?    where id=5446456451";
-    	 boolean upres = JDBC.execute(update_Project,"999");
-    	 System.out.println(upres);
+		execute();
 	}
 }
