@@ -18,7 +18,8 @@ import net.sf.json.JSONObject;
 public class mapLongItudeUtils {
 	
 	public static void main(String[] args) {
-		getLngAndLat("南京市江北新区葛塘街道葛塘后街67号");
+		String lng = getLngAndLat("江北新区");
+		System.out.println(lng);
 	}
 
 	public static String getLngAndLat(String address){
